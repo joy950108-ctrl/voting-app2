@@ -5,13 +5,8 @@
   <title>校園表演投票</title>
   <script type="module" src="firebase.js"></script>
   <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f8f8f8;
-    }
+    body { font-family: Arial; text-align: center; background: #f8f8f8; }
     h1 { margin-top: 30px; }
-
     .team {
       background: white;
       margin: 20px auto;
@@ -23,11 +18,7 @@
       position: relative;
       transition: 0.3s;
     }
-
-    .team:hover {
-      transform: scale(1.03);
-    }
-
+    .team:hover { transform: scale(1.03); }
     .sticker {
       position: absolute;
       top: 10px;
@@ -35,16 +26,8 @@
       font-size: 24px;
       animation: pop 0.5s ease;
     }
-
-    @keyframes pop {
-      0% { transform: scale(0); }
-      100% { transform: scale(1); }
-    }
-
-    .disabled {
-      pointer-events: none;
-      opacity: 0.6;
-    }
+    @keyframes pop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+    .disabled { pointer-events: none; opacity: 0.6; }
   </style>
 </head>
 
