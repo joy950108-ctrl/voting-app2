@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, update, onValue, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
+// 這裡貼妳的 Firebase 設定
 const firebaseConfig = {
   apiKey: "AIzaSyCXKewve5yeMg218pX6jT_SCW-gxL7b__s",
   authDomain: "voting-e58de.firebaseapp.com",
