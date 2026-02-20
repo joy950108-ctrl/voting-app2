@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>即時投票結果</title>
+<script type="module" src="firebase.js"></script>
+<style>
+body {
+  font-family: Arial;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.bar {
+  height: 60px;
+  background: hotpink;
+  margin: 20px;
+  transition: width 0.5s;
+  border-radius: 10px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 即時投票結果 🔥</h1>
+
+<div class="container">
+  <div>A</div>
+  <div class="bar" id="barA"></div>
+
+  <div>B</div>
+  <div class="bar" id="barB"></div>
+
+  <div>C</div>
+  <div class="bar" id="barC"></div>
+</div>
+
+<script type="module">
+import { db, ref, onValue } from './firebase.js';
+
+onValue(ref(db), (snapshot) => {
+  const data = snapshot.val();
+
+  const max = Math.max(data.teamA?.votes || 0, data.teamB?.votes || 0, data.teamC?.votes || 0);
+
+  document.getElementById("barA").style.width = ((data.teamA?.votes || 0)/max*100) + "%";
+  document.getElementById("barB").style.width = ((data.teamB?.votes || 0)/max*100) + "%";
+  document.getElementById("barC").style.width = ((data.teamC?.votes || 0)/max*100) + "%";
+});
+</script>
+
+</body>
+</html>
